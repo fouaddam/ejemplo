@@ -1,7 +1,8 @@
 
 
 
-    import 'package:ejemplo/singlton/DataHolder.dart';
+import 'package:ejemplo/Firebase/ManageUsersView/FBADMIN/FirebaseAdmin.dart';
+import 'package:ejemplo/singlton/DataHolder.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -9,23 +10,7 @@ import 'package:flutter/material.dart';
 
           RFTextFiled email=RFTextFiled(title: 'email',);
           RFTextFiled password=RFTextFiled(title: 'passwor',password: true);
-
-
-          Future<void> SingIn(BuildContext context) async {
-            try {
-              final credential = await DataHolder().getAuthInstance().signInWithEmailAndPassword(
-                  email: email.getText(),
-                  password: password.getText()
-              ).then((value) => Navigator.of(context).popAndPushNamed('/home'));
-              
-            } on FirebaseAuthException catch (e) {
-              if (e.code == 'user-not-found') {
-                print('No user found for that email.');
-              } else if (e.code == 'wrong-password') {
-                print('Wrong password provided for that user.');
-              }
-            }
-          }
+          FireBaseAdmin fireBaseAdmin=FireBaseAdmin();
 
     class Login extends StatelessWidget{
       @override
@@ -44,6 +29,8 @@ import 'package:flutter/material.dart';
                     children: [
                       OutlinedButton(
                         onPressed: () {
+                          fireBaseAdmin.SingIn(context, email.getText(), password.getText());
+
                         },
                         child: Text("aceptar"),
                       ),

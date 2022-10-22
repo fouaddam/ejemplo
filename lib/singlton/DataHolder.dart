@@ -1,13 +1,25 @@
 
 
+import 'package:ejemplo/Firebase/FirebaseEntities/Perfil.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
-import '../Firebase/FirebaseAdmin.dart';
+import '../Firebase/ManageUsersView/FBADMIN/FirebaseAdmin.dart';
 
 class DataHolder{
 
-  static final DataHolder _dataHolder = new DataHolder._internal();
-  static final FireBaseAdmin fireBaseAdmin=new FireBaseAdmin();
+   static final DataHolder _dataHolder = new DataHolder._internal();
+   final FireBaseAdmin fireBaseAdmin=new FireBaseAdmin();
+   Perfil perfil=new Perfil();
+
+
+
+  final  String HOME='/Home';
+  final  String LOGIN='/Login';
+  final  String SPLACH='/Splash';
+  final  String REGISTER='/REGISTER';
+  final String PERFILES='/Perfiles';
+  final String ONBOARDING='/OnBoarding';
 
 
 
@@ -18,12 +30,12 @@ class DataHolder{
               }
 
           void getCurrentUser(){
-                fireBaseAdmin.getCurrentUser();
+                fireBaseAdmin.getCurrentUserUid();
           }
 
-          FirebaseAuth getAuthInstance(){
-               return fireBaseAdmin.firebaseAuth;
-          }
+
+
+
 
 
 
