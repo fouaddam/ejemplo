@@ -10,6 +10,10 @@ class RFTextFiled extends StatelessWidget{
 
   RFTextFiled({super.key, required this.title,  this.password=false});
 
+  String getText(){
+    return textEditingController.text;
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

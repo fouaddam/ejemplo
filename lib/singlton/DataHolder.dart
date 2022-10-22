@@ -1,5 +1,7 @@
 
 
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../Firebase/FirebaseAdmin.dart';
 
 class DataHolder{
@@ -17,6 +19,10 @@ class DataHolder{
 
           void getCurrentUser(){
                 fireBaseAdmin.getCurrentUser();
+          }
+
+          FirebaseAuth getAuthInstance(){
+               return fireBaseAdmin.firebaseAuth;
           }
 
 
