@@ -20,6 +20,7 @@ class DataHolder{
   final  String REGISTER='/REGISTER';
   final String PERFILES='/Perfiles';
   final String ONBOARDING='/OnBoarding';
+  final String ROOMS='romms';
 
 
 

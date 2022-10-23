@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../singlton/DataHolder.dart';
 import '../../FirebaseEntities/Perfil.dart';
+import '../../FirebaseEntities/rooms.dart';
 import '../../costumViews/RFToast.dart';
 
 class FireBaseAdmin{
@@ -14,6 +15,7 @@ class FireBaseAdmin{
   FirebaseAuth firebaseAuth=FirebaseAuth.instance;
   FirebaseFirestore firebaseFirestore=FirebaseFirestore.instance;
   RFToast rfToast =new RFToast();
+  List<Room>listRooms=[];
 
         String? getCurrentUserUid(){
           return firebaseAuth.currentUser?.uid;
@@ -25,7 +27,24 @@ class FireBaseAdmin{
 
   }
 
-  
+
+      Future<List<Room>> getAllRooms() async {
+        final ref = firebaseFirestore.collection(DataHolder().ROOMS).withConverter(
+          fromFirestore: Room.fromFirestore,
+          toFirestore: (Room room, _) => room.toFirestore(),
+        );
+        final docSnap = await ref.get();
+
+            for(int i=0;i<docSnap.docs.length;i++){
+              listRooms.add(docSnap.docs[i].data());
+
+            }
+
+          return listRooms;
+
+     }
+
+
 
       void SingIn(BuildContext context,String email,String password) async {
         try {
