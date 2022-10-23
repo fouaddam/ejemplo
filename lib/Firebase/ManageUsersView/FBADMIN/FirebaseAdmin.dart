@@ -25,9 +25,7 @@ class FireBaseAdmin{
 
   }
 
-        FirebaseAuth getFireBaseAuthIstance(){
-          return firebaseAuth;
-        }
+  
 
       void SingIn(BuildContext context,String email,String password) async {
         try {
