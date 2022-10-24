@@ -4,13 +4,15 @@ import 'package:ejemplo/Firebase/FirebaseEntities/Perfil.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../Firebase/FirebaseEntities/rooms.dart';
 import '../Firebase/ManageUsersView/FBADMIN/FirebaseAdmin.dart';
 
 class DataHolder{
 
    static final DataHolder _dataHolder = new DataHolder._internal();
    final FireBaseAdmin fireBaseAdmin=new FireBaseAdmin();
-   Perfil perfil=new Perfil();
+   Perfil perfil= Perfil();
+   Room roomSelected = Room();
 
 
 
@@ -20,7 +22,10 @@ class DataHolder{
   final  String REGISTER='/REGISTER';
   final String PERFILES='/Perfiles';
   final String ONBOARDING='/OnBoarding';
-  final String ROOMS='romms';
+  final String ROOMS='/romms';
+  final String ROOMCHAT='/RoomChat';
+  final String ROOMSTILE='/RommsTile';
+
 
 
 

@@ -15,7 +15,9 @@ class RoomView extends StatefulWidget{
 class _RoomViewState extends State<RoomView> {
   FireBaseAdmin fireBaseAdmin=FireBaseAdmin();
   List<Room>listaRooms=[];
-  cardsView rfCardView=cardsView();
+
+
+
 
 
 
@@ -24,6 +26,7 @@ class _RoomViewState extends State<RoomView> {
     listaRooms=await fireBaseAdmin.getAllRooms();
 
   }
+
 
 
   @override
@@ -43,7 +46,14 @@ class _RoomViewState extends State<RoomView> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      body:rfCardView,
+      body:Padding(
+        padding: const EdgeInsets.only(top: 50,right: 30),
+        child: Center(
+
+          child:cardsView(listarooms: listaRooms)
+
+        ),
+      ),
     );
   }
 }
