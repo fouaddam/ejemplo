@@ -15,8 +15,8 @@ class RFToast {
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 1,
         backgroundColor: Colors.blue,
-        textColor: Colors.white,
-        fontSize: 16.0
+        textColor: Colors.purple,
+        fontSize: 18.0
     );
   }
 
