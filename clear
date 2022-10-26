@@ -1,0 +1,13 @@
+[1mdiff --git a/lib/Firebase/costumViews/RFToast.dart b/lib/Firebase/costumViews/RFToast.dart[m
+[1mindex 2fd1ca2..73d63c3 100644[m
+[1m--- a/lib/Firebase/costumViews/RFToast.dart[m
+[1m+++ b/lib/Firebase/costumViews/RFToast.dart[m
+[36m@@ -14,7 +14,7 @@[m [mclass RFToast {[m
+         toastLength: Toast.LENGTH_SHORT,[m
+         gravity: ToastGravity.CENTER,[m
+         timeInSecForIosWeb: 1,[m
+[31m-        backgroundColor: Colors.red,[m
+[32m+[m[32m        backgroundColor: Colors.blue,[m
+         textColor: Colors.white,[m
+         fontSize: 16.0[m
+     );[m
