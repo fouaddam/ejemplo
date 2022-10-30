@@ -23,8 +23,8 @@ class cardsView extends StatelessWidget{
 
     switch(index){
       case 0:NaveTo.pushNamed(DataHolder().ROOMCHAT);break;
-      case 1:NaveTo;break;
-      case 2:NaveTo;break;
+      case 1:NaveTo.pushNamed(DataHolder().ROOMCHAT);break;
+      case 2:NaveTo.pushNamed(DataHolder().ROOMCHAT);break;
     }
   }
 

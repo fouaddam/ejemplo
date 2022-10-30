@@ -24,7 +24,10 @@ class DataHolder{
   final String ONBOARDING='/OnBoarding';
   final String ROOMS='/romms';
   final String ROOMCHAT='/RoomChat';
-  final String ROOMSTILE='/RommsTile';
+  final String ROOMSTILE='/RoomsTile';
+  final String rROOM='/Rooms';
+  /**********************************/
+   final String fCOLLECTION_TEXT='/texts';
 
 
 

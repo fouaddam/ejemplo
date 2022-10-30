@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../singlton/DataHolder.dart';
 import '../../FirebaseEntities/Perfil.dart';
+import '../../FirebaseEntities/TextChat.dart';
 import '../../FirebaseEntities/rooms.dart';
 import '../../costumViews/RFToast.dart';
 
@@ -92,7 +93,7 @@ class FireBaseAdmin{
         final perfil = docSnap.data();
 
             if (perfil != null) {
-              Navigator.of(context).popAndPushNamed(DataHolder().HOME);
+              Navigator.of(context).popAndPushNamed(DataHolder().rROOM);
               DataHolder().perfil=perfil;
 
             } else {
@@ -102,6 +103,25 @@ class FireBaseAdmin{
 
       }
 
+      Future<List<TextChat>> DescargarTextChat(String uidRomm) async {
+
+          List<TextChat>listaText=[];
+
+        final docRef = firebaseFirestore
+            .collection(DataHolder().ROOMS+"/"+uidRomm+DataHolder().fCOLLECTION_TEXT)
+            .withConverter(
+          fromFirestore: TextChat.fromFirestore,
+          toFirestore: (TextChat textChat, options) => textChat.toFirestore(),
+        );
+
+       final doc =await docRef.get();
+
+        for(int i=0;i<doc.docs.length;i++){
+
+          listaText.add(doc.docs[i].data());
+        }
+        return listaText;
+      }
 
     }
 

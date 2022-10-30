@@ -6,8 +6,10 @@ class Room {
   final String? name;
   final String? photo;
   final List<String>? perfils;
+  final String? Uid;
 
-  Room({
+  Room( {
+    this.Uid,
     this.name,
     this.photo,
     this.perfils,
@@ -21,6 +23,7 @@ class Room {
     return Room(
       name: data?['name'],
       photo: data?['photo'],
+      Uid: snapshot.id,
       perfils:
       data?['members'] is Iterable ? List.from(data?['members']) : null,
     );
