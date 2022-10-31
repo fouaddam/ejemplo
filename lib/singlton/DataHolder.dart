@@ -4,6 +4,7 @@ import 'package:ejemplo/Firebase/FirebaseEntities/Perfil.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../Firebase/FirebaseEntities/TextChat.dart';
 import '../Firebase/FirebaseEntities/rooms.dart';
 import '../Firebase/ManageUsersView/FBADMIN/FirebaseAdmin.dart';
 
@@ -28,6 +29,9 @@ class DataHolder{
   final String rROOM='/Rooms';
   /**********************************/
    final String fCOLLECTION_TEXT='/texts';
+
+   /**********************************/
+   List<TextChat>listChatText=[];
 
 
 

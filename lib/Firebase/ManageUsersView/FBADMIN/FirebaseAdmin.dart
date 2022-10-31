@@ -103,6 +103,25 @@ class FireBaseAdmin{
 
       }
 
+      void InsertTextChat(String text,String path) async {
+
+        final textchat = TextChat(
+          text: text,
+          dateTime: Timestamp.now(),
+          author: FirebaseAuth.instance.currentUser?.uid,
+
+        );
+        final docRef = firebaseFirestore
+            .collection(DataHolder().ROOMS+"/"+path+DataHolder().fCOLLECTION_TEXT)
+            .withConverter(
+          fromFirestore: TextChat.fromFirestore,
+          toFirestore: (TextChat textchat, options) => textchat.toFirestore(),
+        )
+            .doc();
+        await docRef.set(textchat);
+
+      }
+
       Future<List<TextChat>> DescargarTextChat(String uidRomm) async {
 
           List<TextChat>listaText=[];
@@ -123,7 +142,24 @@ class FireBaseAdmin{
         return listaText;
       }
 
-    }
+
+  Stream<QuerySnapshot<TextChat>> actalizarChat(String uidRomm) {
+
+    final docRef = firebaseFirestore
+        .collection(DataHolder().ROOMS+"/"+uidRomm+DataHolder().fCOLLECTION_TEXT)
+        .withConverter(
+      fromFirestore: TextChat.fromFirestore,
+      toFirestore: (TextChat textChat, options) => textChat.toFirestore(),
+    );
+
+    return docRef.snapshots();
+  }
+
+}
+
+
+
+
 
 
 
